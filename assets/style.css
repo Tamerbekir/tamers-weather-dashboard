@@ -1,0 +1,12 @@
+body{
+    background-image: linear-gradient(to right, rgba(142, 145, 174, 0.382) , rgb(153, 105, 79));
+}
+
+.current-weather, .search-button, .five-day-forcast, .weather-header{
+    background-color: rgba(14, 17, 17, 0.106);
+}
+
+.radius{
+    border-radius: 20px;
+    align-items: center;
+}
