@@ -40,24 +40,29 @@ function weatherInfo(OpenWeatherData) {
     if (OpenWeatherData) {
         const {name, main, wind } = OpenWeatherData
         
-        const locationTitle = document.createElement('p');
+        const locationTitle = document.createElement('p')
         locationTitle.textContent = `Location: ${name}`
-        document.body.appendChild(locationTitle);
+        const locationSection = document.getElementById('location-result')
+        locationSection.appendChild(locationTitle);
         
-        const temperature = main.temp;
-        const temaptureTitle = document.createElement('p')
-        temaptureTitle.textContent = `Temperature: ${temperature} F`
-        document.body.appendChild(temaptureTitle)
+        const temperature = main.temp
+        const temperatureTitle = document.createElement('p')
+        temperatureTitle.textContent = `Temperature: ${temperature} F`
+        const temperatureSection = document.getElementById('temp-result')
+        temperatureSection.appendChild(temperatureTitle);
         
-        const humidity = main.humidity;
+        const humidity = main.humidity
         const humidityTitle = document.createElement('p')
         humidityTitle.textContent = `Humidity: ${humidity} %`
-        document.body.appendChild(humidityTitle);
+        const humiditySection = document.getElementById('humidity-result')
+        humiditySection.appendChild(humidityTitle);
         
-        const windSpeed = wind.speed;
+        //! This works when appending it to a certain class/id
+        const windSpeed = wind.speed
         const windSpeedTitle = document.createElement('p')
         windSpeedTitle.textContent = `Wind Speed: ${windSpeed} mph`
-        document.body.appendChild(windSpeedTitle)
+        const weatherSection = document.getElementById('wind-result')
+        weatherSection.appendChild(windSpeedTitle)
     }
 }
 
@@ -78,8 +83,8 @@ function searchWeather () {
     }
 
     //button starts function to get data from Open Weather
-const searchButton = document.getElementById('searchBtn')
-searchButton.addEventListener('click', searchWeather)
+    const searchButton = document.getElementById('searchBtn')
+    searchButton.addEventListener('click', searchWeather);
 
 
 
