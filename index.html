@@ -14,29 +14,22 @@
     </header>
 </head>
   <body>
-    
-    
-    
-
 
     <label class="search-city my-3 mx-5" for="form1">Search City</label>
         <div class="input-group mx-5">
           <div class="form-outline" data-mdb-input-init>
-            <input type="search" id="form1" class="form-control" placeholder="Check wheather in.." />
-            <button id="search-btn" class="btn search-button text-white py-2 v-100 mt-2">Search</button>
+            <input type="search" id="city"  class="form-control" placeholder="Check wheather in.." />
+            <button id="searchBtn" class="btn search-button text-white py-2 v-100 mt-2">Search</button>
             <i class="fas fa-search"></i>
           </button>
+          <div id="result"></div>
         </div>
-
-
-        
-
         <div class="col-md-5">
           <div class="current-weather text-white py-2 px-4 radius">
-            <div class="mt-3 d-flex">
+            <div class="mt-3 d-flex class="cityName">
               <div>
                 <!-- Added card for each date in 5 day forecast -->
-                <h5 class="card-title">City Name</h5>
+                <h5 class="card-title" id="weather-results">City Name</h5>
                 <h6 class="card-text">Temp</h6>
                 <h6 class="card-text">Wind</h6>
                 <h6 class="card-text">Humidity %</h6>
