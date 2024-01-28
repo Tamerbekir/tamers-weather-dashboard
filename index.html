@@ -17,9 +17,9 @@
 
     <label class="search-city my-3 mx-5" for="form1">Search City</label>
         <div class="input-group mx-5">
-          <div class="form-outline" data-mdb-input-init>
-            <input type="search" id="city"  class="form-control" placeholder="Check wheather in.." />
-            <button id="searchBtn" class="btn search-button text-white py-2 v-100 mt-2">Search</button>
+          <div class="form-outline"  data-mdb-input-init>
+            <input type="text" id="city" class="form-control" placeholder="Check wheather in.." />
+            <button id="searchBtn"  class="btn search-button text-white py-2 v-100 mt-2">Search</button>
             <i class="fas fa-search"></i>
           </button>
           <div id="result"></div>
@@ -29,52 +29,52 @@
             <div class="mt-3 d-flex class="cityName">
               <div>
                 <!-- Added card for each date in 5 day forecast -->
-                <h5 class="card-title" id="location-result"></h5>
-                <h6 class="card-text" id="temp-result"></h6>
-                <h6 class="card-text" id="wind-result"></h6>
-                <h6 class="card-text" id="humidity-result"></h6>
+                <h4 class="card-title" id="location-result">Location:</h4>
+                <h5 class="card-text" id="temp-result">Temperature:</h5>
+                <h5 class="card-text" id="wind-result">Wind Speed:</h5>
+                <h5 class="card-text" id="humidity-result" id="noLocation">Humidity:</h5>
               </div>
           </div>
           </div>
           <h4 class="five-day"> 5 Day Forecast Ahead</h4>
           <div class="card radius five-day-forcast text-white col-mb-3 w-5" style="width: 15rem;">
             <div class="card-body">
-              <h5 class="card-title">Date</h5>
-              <h5 class="card-title">Temp</h5>
-              <h5 class="card-title">Wind</h5>
-              <h5 class="card-title">Humidity</h5>
+              <h5 class="card-title" id="day-one">Date</h5>
+              <h5 class="card-title five-day-temp-result"id="day-one-temp">Temp</h5>
+              <h5 class="card-title five-day-wind-result">Wind</h5>
+              <h5 class="card-title five-day-humidity-result">Humidity</h5>
             </div>
           </div>
           <div class="card radius col-mb-3 five-day-forcast text-white" style="width: 15rem;">
             <div class="card-body">
-              <h5 class="card-title">Date</h5>
-              <h5 class="card-title">Temp</h5>
-              <h5 class="card-title">Wind</h5>
-              <h5 class="card-title">Humidity</h5>
+              <h5 class="card-title" id="day-two">Date</h5>
+              <h5 class="card-title five-day-temp-result"id="day-two-temp">Temp</h5>
+              <h5 class="card-title five-day-wind-result">Wind</h5>
+              <h5 class="card-title five-day-humidity-result">Humidity</h5>
             </div>
           </div>
           <div class="card radius col-mb-3 five-day-forcast text-white" style="width: 15rem;">
             <div class="card-body">
-              <h5 class="card-title">Date</h5>
-              <h5 class="card-title">Temp</h5>
-              <h5 class="card-title">Wind</h5>
-              <h5 class="card-title">Humidity</h5>
+              <h5 class="card-title five-day-date-result" id="day-three">Date</h5>
+              <h5 class="card-title five-day-temp-result" id="day-three-temp">Temp</h5>
+              <h5 class="card-title five-day-wind-result">Wind</h5>
+              <h5 class="card-title five-day-humidity-result">Humidity</h5>
             </div>
           </div>
           <div class="card radius col-mb-3 five-day-forcast text-white" style="width: 15rem;">
             <div class="card-body">
-              <h5 class="card-title">Date</h5>
-              <h5 class="card-title">Temp</h5>
-              <h5 class="card-title">Wind</h5>
-              <h5 class="card-title">Humidity</h5>
+              <h5 class="card-title five-day-date-result" id="day-four">Date</h5>
+              <h5 class="card-title five-day-temp-result"id="day-four-temp">Temp</h5>
+              <h5 class="card-title five-day-wind-result">Wind</h5>
+              <h5 class="card-title five-day-humidity-result">Humidity</h5>
             </div>
           </div>
           <div class="card radius col-mb-3 five-day-forcast text-white" style="width: 15rem;">
             <div class="card-body">
-              <h5 class="card-title">Date</h5>
-              <h5 class="card-title">Temp</h5>
-              <h5 class="card-title">Wind</h5>
-              <h5 class="card-title">Humidity</h5>
+              <h5 class="card-title five-day-date-result" id="day-five">Date</h5>
+              <h5 class="card-title five-day-temp-result"id="day-five-temp">Temp</h5>
+              <h5 class="card-title five-day-wind-result">Wind</h5>
+              <h5 class="card-title five-day-humidity-result">Humidity</h5>
             </div>
           </div>
             </div>
