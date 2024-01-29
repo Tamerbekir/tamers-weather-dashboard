@@ -221,7 +221,7 @@ function weatherInfo(openWeatherData) {
         locationSection.innerHTML = ''
         locationSection.appendChild(locationTitle);
 
-        const temperature = main.temp
+        const temperature = Math.round(main.temp)
         const temperatureTitle = document.createElement('h5')
         temperatureTitle.textContent = `Temperature: ${temperature} °F`
         const temperatureSection = document.getElementById('temp-result')
@@ -235,7 +235,7 @@ function weatherInfo(openWeatherData) {
         humiditySection.innerHTML = ''
         humiditySection.appendChild(humidityTitle)
 
-        const windSpeed = wind.speed
+        const windSpeed = math.round(wind.speed)
         const windSpeedTitle = document.createElement('h5')
         windSpeedTitle.textContent = `Wind Speed: ${windSpeed} mph`
         const weatherSection = document.getElementById('wind-result')
