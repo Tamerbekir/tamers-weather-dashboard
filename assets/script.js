@@ -2,8 +2,8 @@
 //API from Open weather, which is split using the URL and keycode so it does not stay one long link(needs to be broken up)
 const openWeatherApi = "71e928d92d98bda0676099915e2ca191"
 const openWeatherUrl = "https://api.openweathermap.org/data/2.5/weather"
-const fiveDayForecastUrl = "https://api.openweathermap.org/data/2.5/forecast"
-const fiveDayForecastApi = "71e928d92d98bda0676099915e2ca191"
+const fiveDayForecastUrl = "https://api.openweathermap.org/data/2.5/forecast/"
+
 
 // via mdn docs
 //This will fetch all the data from the API, using cosnt variables that are placed. changed units to imperial.
@@ -26,7 +26,7 @@ async function fetchWeather(location) {
 async function fetchFiveDayWeather(location) {
     try {
         //taking in weather for 5 day forcast
-        const responseFiveDay = await fetch(`${fiveDayForecastUrl}?q=${location}&appid=${fiveDayForecastApi}&cnt=35&units=imperial`);
+        const responseFiveDay = await fetch(`${fiveDayForecastUrl}?q=${location}&appid=${openWeatherApi}&cnt=35&units=imperial`);
         const dataFiveDay = await responseFiveDay.json();
         //the five day weather is taken in and put into local storage
         localStorage.setItem('fiveDayWeatherData', JSON.stringify(dataFiveDay))
@@ -42,11 +42,40 @@ async function fetchFiveDayWeather(location) {
 //the point of reference is LIST, then the date, the temp, wind and humidity is gathered.
 function weatherInfoFiveDay(fiveDayOpenWeatherData) {
     const {list} = fiveDayOpenWeatherData
-
-    //! need to add this to all variables that need a date
-
-
     if (fiveDayOpenWeatherData) {
+
+
+        const dayOneImg = document.createElement('img')
+        dayOneImg.src = `https://openweathermap.org/img/wn/${list[0].weather[0].icon}.png`
+        const dayOneImgSection = document.getElementById('day-one-location-icon')
+        dayOneImgSection.textContent = ''
+        dayOneImgSection.appendChild(dayOneImg)
+
+        const dayTwoImg = document.createElement('img')
+        dayTwoImg.src = `https://openweathermap.org/img/wn/${list[8].weather[0].icon}.png`
+        const dayTwoImgSection = document.getElementById('day-two-location-icon')
+        dayTwoImgSection.textContent = ''
+        dayTwoImgSection.appendChild(dayTwoImg)
+        
+        const dayThreeImg = document.createElement('img')
+        dayThreeImg.src = `https://openweathermap.org/img/wn/${list[16].weather[0].icon}.png`
+        const dayThreeImgSection = document.getElementById('day-three-location-icon')
+        dayThreeImgSection.textContent = ''
+        dayThreeImgSection.appendChild(dayThreeImg)
+
+        const dayFourImg = document.createElement('img')
+        dayFourImg.src = `https://openweathermap.org/img/wn/${list[24].weather[0].icon}.png`
+        const dayFourImgSection = document.getElementById('day-four-location-icon')
+        dayFourImgSection.textContent = ''
+        dayFourImgSection.appendChild(dayFourImg)
+
+        const dayFiveImg = document.createElement('img')
+        dayFiveImg.src = `https://openweathermap.org/img/wn/${list[32].weather[0].icon}.png`
+        const dayFiveImgSection = document.getElementById('day-five-location-icon')
+        dayFiveImgSection.textContent = ''
+        dayFiveImgSection.appendChild(dayFiveImg)
+        
+
         //created a variable for the data that is needed for the date
         const dayOneDay = new Date(list[0].dt_txt).toLocaleDateString('en-US')
         //formating time from API to read as month/day/year
@@ -159,7 +188,7 @@ function weatherInfoFiveDay(fiveDayOpenWeatherData) {
         dayFourTempSection.textContent = ''
         dayFourTempSection.appendChild(dayFourTempTitle)
 
-        const dayFourWind = list[24].wind.speed
+        const dayFourWind = Math.round(list[24].wind.speed)
         const dayFourWindTitle = document.createElement('h6')
         dayFourWindTitle.textContent = `Wind: ${dayFourWind} mph`
         const dayFourWindSection = document.getElementById('day-four-wind')
@@ -209,10 +238,21 @@ document.getElementById('refreshButton').addEventListener('click', function() {
     location.reload();
 })
 
+
+
+
 //this function takes data for the current forcast using data points from API- name, main and wind
 //same notes for fivedayweather apply here.
 function weatherInfo(openWeatherData) {
-    const {name, main, wind} = openWeatherData;
+    const {name, main, wind, weather} = openWeatherData;
+
+    //Grabs weather icons from open weathers api and appends them to the page for current weatrher
+    const imgIcons = document.createElement('img')
+    imgIcons.src = `https://openweathermap.org/img/wn/${weather[0].icon}@2x.png`
+    const imgSelection = document.getElementById('location-icon')
+    imgSelection.textContent = ''
+    imgSelection.appendChild(imgIcons)
+
 
     if (openWeatherData) {
         const locationTitle = document.createElement('h4')
@@ -235,7 +275,7 @@ function weatherInfo(openWeatherData) {
         humiditySection.innerHTML = ''
         humiditySection.appendChild(humidityTitle)
 
-        const windSpeed = math.round(wind.speed)
+        const windSpeed = Math.round(wind.speed)
         const windSpeedTitle = document.createElement('h5')
         windSpeedTitle.textContent = `Wind Speed: ${windSpeed} mph`
         const weatherSection = document.getElementById('wind-result')
