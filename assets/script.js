@@ -64,14 +64,14 @@ function weatherInfoFiveDay(fiveDayOpenWeatherData) {
 
         //the same notes above apply to the rest of the elements here, exept data points were changed
 
-        const dayOneTemp = list[0].main.temp
+        const dayOneTemp = Math.round(list[0].main.temp)
         const dayOneTempTitle = document.createElement('h6')
         dayOneTempTitle.textContent = `Temp: ${dayOneTemp} °F`
         const dayOneTempSection = document.getElementById('day-one-temp')
         dayOneTempSection.textContent = ''
         dayOneTempSection.appendChild(dayOneTempTitle);
 
-        const dayOneWind = list[0].wind.speed
+        const dayOneWind = Math.round(list[0].wind.speed)
         const dayOneWindTitle = document.createElement('h6')
         dayOneWindTitle.textContent = `Wind: ${dayOneWind} mph`
         const dayOneWindSection = document.getElementById('day-one-wind')
@@ -94,14 +94,14 @@ function weatherInfoFiveDay(fiveDayOpenWeatherData) {
         dayTwoSection.textContent = ''
         dayTwoSection.appendChild(dayTwoTitle);
 
-        const dayTwoTemp = list[8].main.temp
+        const dayTwoTemp = Math.round(list[8].main.temp)
         const dayTwoTempTitle = document.createElement('h6')
         dayTwoTempTitle.textContent = `Temp: ${dayTwoTemp} °F`
         const dayTwoTempSection = document.getElementById('day-two-temp')
         dayTwoTempSection.textContent = ''
         dayTwoTempSection.appendChild(dayTwoTempTitle);
 
-        const dayTwoWind = list[8].wind.speed
+        const dayTwoWind = Math.round(list[8].wind.speed)
         const dayTwoWindTitle = document.createElement('h6')
         dayTwoWindTitle.textContent = `Wind: ${dayTwoWind} mph`
         const dayTwoWindSection = document.getElementById('day-two-wind')
@@ -115,7 +115,6 @@ function weatherInfoFiveDay(fiveDayOpenWeatherData) {
         dayTwoHumiditySection.textContent = ''
         dayTwoHumiditySection.appendChild(dayTwoHumidityTitle)
 
-
         const dayThreeDate = new Date(list[8].dt_txt).toLocaleDateString("en-us")
         const dayThreeFormattedDate = dayThreeDate.split('/').join('/')
         const dayThreeTitle = document.createElement('h6')
@@ -124,14 +123,14 @@ function weatherInfoFiveDay(fiveDayOpenWeatherData) {
         dayThreeSection.textContent = ''
         dayThreeSection.appendChild(dayThreeTitle);
 
-        const dayThreeTemp = list[16].main.temp
+        const dayThreeTemp = Math.round(list[16].main.temp)
         const dayThreeTempTitle = document.createElement('h6')
         dayThreeTempTitle.textContent = `Temp: ${dayThreeTemp} °F`
         const dayThreeTempSection = document.getElementById('day-three-temp')
         dayThreeTempSection.textContent = ''
         dayThreeTempSection.appendChild(dayThreeTempTitle);
 
-        const dayThreeWind = list[16].wind.speed
+        const dayThreeWind = Math.round(list[16].wind.speed)
         const dayThreeWindTitle = document.createElement('h6')
         dayThreeWindTitle.textContent = `Wind: ${dayThreeWind} mph`
         const dayThreeWindSection = document.getElementById('day-three-wind')
@@ -153,7 +152,7 @@ function weatherInfoFiveDay(fiveDayOpenWeatherData) {
         dayFourSection.textContent = ''
         dayFourSection.appendChild(dayFourTitle);
 
-        const dayFourTemp = list[24].main.temp
+        const dayFourTemp = Math.round(list[24].main.temp)
         const dayFourTempTitle = document.createElement('h6')
         dayFourTempTitle.textContent = `Temp: ${dayFourTemp} °F`
         const dayFourTempSection = document.getElementById('day-four-temp')
@@ -174,7 +173,6 @@ function weatherInfoFiveDay(fiveDayOpenWeatherData) {
         dayFourHumiditySection.textContent = ''
         dayFourHumiditySection.appendChild(dayFourHumidityTitle);
 
-
         const dayFiveDate = new Date(list[32].dt_txt).toLocaleDateString("en-us")
         const dayFiveFormattedDate = dayFiveDate.split('/').join('/')
         const dayFiveTitle = document.createElement('h6')
@@ -183,14 +181,14 @@ function weatherInfoFiveDay(fiveDayOpenWeatherData) {
         dayFiveSection.textContent = ''
         dayFiveSection.appendChild(dayFiveTitle);
 
-        const dayFiveTemp = list[32].main.temp
+        const dayFiveTemp = Math.round(list[32].main.temp)
         const dayFiveTempTitle = document.createElement('h6')
         dayFiveTempTitle.textContent = `Temp: ${dayFiveTemp} °F`
         const dayFiveTempSection = document.getElementById('day-five-temp')
         dayFiveTempSection.textContent = ''
         dayFiveTempSection.appendChild(dayFiveTempTitle);
 
-        const dayFiveWind = list[32].wind.speed
+        const dayFiveWind = Math.round(list[32].wind.speed)
         const dayFiveWindTitle = document.createElement('h6')
         dayFiveWindTitle.textContent = `Wind: ${dayFiveWind} mph`
         const dayFiveWindSection = document.getElementById('day-five-wind')
