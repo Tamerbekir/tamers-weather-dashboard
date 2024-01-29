@@ -44,16 +44,17 @@ function weatherInfoFiveDay(fiveDayOpenWeatherData) {
     const {list} = fiveDayOpenWeatherData
 
     //! need to add this to all variables that need a date
-    const date = new Date(list[0].dt_txt).toLocaleDateString('en-US')
-    const newDateFormate = date.split('/').join('-')
+
 
     if (fiveDayOpenWeatherData) {
         //created a variable for the data that is needed for the date
-        const dayOne = list[0].dt_txt
+        const dayOneDay = new Date(list[0].dt_txt).toLocaleDateString('en-US')
+        //formating time from API to read as month/day/year
+        const dayOneFormattedDate = dayOneDay.split('/').join('/')
         //created element for the date
         const dayOneTitle = document.createElement('h6')
         //added text and information for the new date element, and grabbed variable 
-        dayOneTitle.textContent = `Date: ${dayOne}`
+        dayOneTitle.textContent = `Date: ${dayOneFormattedDate}`
         //grabbed ID in which I want to place said new created element with variable
         const dayOneSection = document.getElementById('day-one')
         //once the user searches for a new city, old text will clear out by using an empty string/text
@@ -65,7 +66,7 @@ function weatherInfoFiveDay(fiveDayOpenWeatherData) {
 
         const dayOneTemp = list[0].main.temp
         const dayOneTempTitle = document.createElement('h6')
-        dayOneTempTitle.textContent = `Temp: ${dayOneTemp} F`
+        dayOneTempTitle.textContent = `Temp: ${dayOneTemp} °F`
         const dayOneTempSection = document.getElementById('day-one-temp')
         dayOneTempSection.textContent = ''
         dayOneTempSection.appendChild(dayOneTempTitle);
@@ -84,16 +85,18 @@ function weatherInfoFiveDay(fiveDayOpenWeatherData) {
         dayOneHumiditySection.textContent = ''
         dayOneHumiditySection.appendChild(dayOneHumidityTitle);
 
-        const dayTwo = list[8].dt_txt
+
+        const dayTwoDate = new Date(list[8].dt_txt).toLocaleDateString("en-us")
+        const dayTwoFormattedDate = dayTwoDate.split('/').join('/')
         const dayTwoTitle = document.createElement('h6')
-        dayTwoTitle.textContent = `Date: ${dayTwo}`
+        dayTwoTitle.textContent = `Date: ${dayTwoFormattedDate}`
         const dayTwoSection = document.getElementById('day-two')
         dayTwoSection.textContent = ''
         dayTwoSection.appendChild(dayTwoTitle);
 
         const dayTwoTemp = list[8].main.temp
         const dayTwoTempTitle = document.createElement('h6')
-        dayTwoTempTitle.textContent = `Temp: ${dayTwoTemp} F`
+        dayTwoTempTitle.textContent = `Temp: ${dayTwoTemp} °F`
         const dayTwoTempSection = document.getElementById('day-two-temp')
         dayTwoTempSection.textContent = ''
         dayTwoTempSection.appendChild(dayTwoTempTitle);
@@ -112,16 +115,18 @@ function weatherInfoFiveDay(fiveDayOpenWeatherData) {
         dayTwoHumiditySection.textContent = ''
         dayTwoHumiditySection.appendChild(dayTwoHumidityTitle)
 
-        const dayThree = list[16].dt_txt
+
+        const dayThreeDate = new Date(list[8].dt_txt).toLocaleDateString("en-us")
+        const dayThreeFormattedDate = dayThreeDate.split('/').join('/')
         const dayThreeTitle = document.createElement('h6')
-        dayThreeTitle.textContent = `Date: ${dayThree}`
+        dayThreeTitle.textContent = `Date: ${dayThreeFormattedDate}`
         const dayThreeSection = document.getElementById('day-three')
         dayThreeSection.textContent = ''
         dayThreeSection.appendChild(dayThreeTitle);
 
         const dayThreeTemp = list[16].main.temp
         const dayThreeTempTitle = document.createElement('h6')
-        dayThreeTempTitle.textContent = `Temp: ${dayThreeTemp} F`
+        dayThreeTempTitle.textContent = `Temp: ${dayThreeTemp} °F`
         const dayThreeTempSection = document.getElementById('day-three-temp')
         dayThreeTempSection.textContent = ''
         dayThreeTempSection.appendChild(dayThreeTempTitle);
@@ -140,16 +145,17 @@ function weatherInfoFiveDay(fiveDayOpenWeatherData) {
         dayThreeHumiditySection.textContent = ''
         dayThreeHumiditySection.appendChild(dayThreeHumidityTitle);
 
-        const dayFour = list[24].dt_txt
+        const dayFourDate = new Date(list[24].dt_txt).toLocaleDateString("en-us")
+        const dayForFormattedDate = dayFourDate.split('/').join('/')
         const dayFourTitle = document.createElement('h6')
-        dayFourTitle.textContent = `Date: ${dayFour}`
+        dayFourTitle.textContent = `Date: ${dayForFormattedDate}`
         const dayFourSection = document.getElementById('day-four')
         dayFourSection.textContent = ''
         dayFourSection.appendChild(dayFourTitle);
 
         const dayFourTemp = list[24].main.temp
         const dayFourTempTitle = document.createElement('h6')
-        dayFourTempTitle.textContent = `Temp: ${dayFourTemp} F`
+        dayFourTempTitle.textContent = `Temp: ${dayFourTemp} °F`
         const dayFourTempSection = document.getElementById('day-four-temp')
         dayFourTempSection.textContent = ''
         dayFourTempSection.appendChild(dayFourTempTitle)
@@ -168,16 +174,18 @@ function weatherInfoFiveDay(fiveDayOpenWeatherData) {
         dayFourHumiditySection.textContent = ''
         dayFourHumiditySection.appendChild(dayFourHumidityTitle);
 
-        const dayFive = list[32].dt_txt
+
+        const dayFiveDate = new Date(list[32].dt_txt).toLocaleDateString("en-us")
+        const dayFiveFormattedDate = dayFiveDate.split('/').join('/')
         const dayFiveTitle = document.createElement('h6')
-        dayFiveTitle.textContent = `Date: ${dayFive}`
+        dayFiveTitle.textContent = `Date: ${dayFiveFormattedDate}`
         const dayFiveSection = document.getElementById('day-five')
         dayFiveSection.textContent = ''
         dayFiveSection.appendChild(dayFiveTitle);
 
         const dayFiveTemp = list[32].main.temp
         const dayFiveTempTitle = document.createElement('h6')
-        dayFiveTempTitle.textContent = `Temp: ${dayFiveTemp} F`
+        dayFiveTempTitle.textContent = `Temp: ${dayFiveTemp} °F`
         const dayFiveTempSection = document.getElementById('day-five-temp')
         dayFiveTempSection.textContent = ''
         dayFiveTempSection.appendChild(dayFiveTempTitle);
@@ -217,7 +225,7 @@ function weatherInfo(openWeatherData) {
 
         const temperature = main.temp
         const temperatureTitle = document.createElement('h5')
-        temperatureTitle.textContent = `Temperature: ${temperature} F`
+        temperatureTitle.textContent = `Temperature: ${temperature} °F`
         const temperatureSection = document.getElementById('temp-result')
         temperatureSection.innerHTML = ''
         temperatureSection.appendChild(temperatureTitle)
@@ -267,6 +275,7 @@ function createHistoryButton(location) {
         fetchFiveDayWeather(location).then(weatherInfoFiveDay);
     })
     //variable to create list element for new history button
+    //! appends only when page is refreshed
     const historyItem = document.createElement('li')
     //append history button on to page in list order
     historyItem.appendChild(historyButton)
@@ -275,6 +284,9 @@ function createHistoryButton(location) {
     // use this id to append the new element created list
     searchHistorySection.appendChild(historyItem)
 }
+
+
+
 
 // this function will update the search history in localstorage by taking all the search history 
 //results typed into search text field. Every time a user searches a location it will go to storage and not replace already stored location searched
@@ -290,8 +302,8 @@ function updateSearchHistory(location) {
 const searchButton = document.getElementById('searchBtn')
 searchButton.addEventListener('click', searchWeatherCombined)
 
-//this fucntion is a combined function for bother the fiveday weather and current weather. 
-//it also makes it seasy to plug this function into other functions because it is not one combined
+//this fucntion is a combined function for  the fiveday weather and current weather. 
+//it also makes its easy to plug this function into other functions because it is now one combined
 function searchWeatherCombined() {
     const locationTitle = document.getElementById('city')
     const location = locationTitle.value;
