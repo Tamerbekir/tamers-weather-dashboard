@@ -41,7 +41,11 @@ async function fetchFiveDayWeather(location) {
 //this whole function graps data from the API points.
 //the point of reference is LIST, then the date, the temp, wind and humidity is gathered.
 function weatherInfoFiveDay(fiveDayOpenWeatherData) {
-    const { list } = fiveDayOpenWeatherData
+    const {list} = fiveDayOpenWeatherData
+
+    //! need to add this to all variables that need a date
+    const date = new Date(list[0].dt_txt).toLocaleDateString('en-US')
+    const newDateFormate = date.split('/').join('-')
 
     if (fiveDayOpenWeatherData) {
         //created a variable for the data that is needed for the date
@@ -193,6 +197,12 @@ function weatherInfoFiveDay(fiveDayOpenWeatherData) {
         dayFiveHumiditySection.appendChild(dayFiveHumidityTitle)
     }
 }
+
+//function/click event that refreshes the page for the user so they can see their search results
+document.getElementById('refreshButton').addEventListener('click', function() {
+    location.reload();
+})
+
 //this function takes data for the current forcast using data points from API- name, main and wind
 //same notes for fivedayweather apply here.
 function weatherInfo(openWeatherData) {
