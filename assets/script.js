@@ -44,38 +44,6 @@ function weatherInfoFiveDay(fiveDayOpenWeatherData) {
     const {list} = fiveDayOpenWeatherData
     if (fiveDayOpenWeatherData) {
 
-
-        const dayOneImg = document.createElement('img')
-        dayOneImg.src = `https://openweathermap.org/img/wn/${list[0].weather[0].icon}.png`
-        const dayOneImgSection = document.getElementById('day-one-location-icon')
-        dayOneImgSection.textContent = ''
-        dayOneImgSection.appendChild(dayOneImg)
-
-        const dayTwoImg = document.createElement('img')
-        dayTwoImg.src = `https://openweathermap.org/img/wn/${list[8].weather[0].icon}.png`
-        const dayTwoImgSection = document.getElementById('day-two-location-icon')
-        dayTwoImgSection.textContent = ''
-        dayTwoImgSection.appendChild(dayTwoImg)
-        
-        const dayThreeImg = document.createElement('img')
-        dayThreeImg.src = `https://openweathermap.org/img/wn/${list[16].weather[0].icon}.png`
-        const dayThreeImgSection = document.getElementById('day-three-location-icon')
-        dayThreeImgSection.textContent = ''
-        dayThreeImgSection.appendChild(dayThreeImg)
-
-        const dayFourImg = document.createElement('img')
-        dayFourImg.src = `https://openweathermap.org/img/wn/${list[24].weather[0].icon}.png`
-        const dayFourImgSection = document.getElementById('day-four-location-icon')
-        dayFourImgSection.textContent = ''
-        dayFourImgSection.appendChild(dayFourImg)
-
-        const dayFiveImg = document.createElement('img')
-        dayFiveImg.src = `https://openweathermap.org/img/wn/${list[32].weather[0].icon}.png`
-        const dayFiveImgSection = document.getElementById('day-five-location-icon')
-        dayFiveImgSection.textContent = ''
-        dayFiveImgSection.appendChild(dayFiveImg)
-        
-
         //created a variable for the data that is needed for the date
         const dayOneDay = new Date(list[0].dt_txt).toLocaleDateString('en-US')
         //formating time from API to read as month/day/year
@@ -230,6 +198,38 @@ function weatherInfoFiveDay(fiveDayOpenWeatherData) {
         const dayFiveHumiditySection = document.getElementById('day-five-humidity')
         dayFiveHumiditySection.textContent = ''
         dayFiveHumiditySection.appendChild(dayFiveHumidityTitle)
+
+
+        const dayOneImg = document.createElement('img')
+        dayOneImg.src = `https://openweathermap.org/img/wn/${list[0].weather[0].icon}.png`
+        const dayOneImgSection = document.getElementById('day-one-location-icon')
+        dayOneImgSection.textContent = ''
+        dayOneImgSection.appendChild(dayOneImg)
+
+        const dayTwoImg = document.createElement('img')
+        dayTwoImg.src = `https://openweathermap.org/img/wn/${list[8].weather[0].icon}.png`
+        const dayTwoImgSection = document.getElementById('day-two-location-icon')
+        dayTwoImgSection.textContent = ''
+        dayTwoImgSection.appendChild(dayTwoImg)
+        
+        const dayThreeImg = document.createElement('img')
+        dayThreeImg.src = `https://openweathermap.org/img/wn/${list[16].weather[0].icon}.png`
+        const dayThreeImgSection = document.getElementById('day-three-location-icon')
+        dayThreeImgSection.textContent = ''
+        dayThreeImgSection.appendChild(dayThreeImg)
+
+        const dayFourImg = document.createElement('img')
+        dayFourImg.src = `https://openweathermap.org/img/wn/${list[24].weather[0].icon}.png`
+        const dayFourImgSection = document.getElementById('day-four-location-icon')
+        dayFourImgSection.textContent = ''
+        dayFourImgSection.appendChild(dayFourImg)
+
+        const dayFiveImg = document.createElement('img')
+        dayFiveImg.src = `https://openweathermap.org/img/wn/${list[32].weather[0].icon}.png`
+        const dayFiveImgSection = document.getElementById('day-five-location-icon')
+        dayFiveImgSection.textContent = ''
+        dayFiveImgSection.appendChild(dayFiveImg)
+        
     }
 }
 
@@ -239,20 +239,10 @@ document.getElementById('refreshButton').addEventListener('click', function() {
 })
 
 
-
-
 //this function takes data for the current forcast using data points from API- name, main and wind
 //same notes for fivedayweather apply here.
 function weatherInfo(openWeatherData) {
     const {name, main, wind, weather} = openWeatherData;
-
-    //Grabs weather icons from open weathers api and appends them to the page for current weatrher
-    const imgIcons = document.createElement('img')
-    imgIcons.src = `https://openweathermap.org/img/wn/${weather[0].icon}@2x.png`
-    const imgSelection = document.getElementById('location-icon')
-    imgSelection.textContent = ''
-    imgSelection.appendChild(imgIcons)
-
 
     if (openWeatherData) {
         const locationTitle = document.createElement('h4')
@@ -281,6 +271,13 @@ function weatherInfo(openWeatherData) {
         const weatherSection = document.getElementById('wind-result')
         weatherSection.innerHTML = ''
         weatherSection.appendChild(windSpeedTitle)
+
+    //Grabs weather icons from open weathers api and appends them to the page for current weatrher
+    const imgIcons = document.createElement('img')
+    imgIcons.src = `https://openweathermap.org/img/wn/${weather[0].icon}@2x.png`
+    const imgSelection = document.getElementById('location-icon')
+    imgSelection.textContent = ''
+    imgSelection.appendChild(imgIcons)
     }
 }
 
@@ -313,7 +310,7 @@ function createHistoryButton(location) {
         fetchFiveDayWeather(location).then(weatherInfoFiveDay);
     })
     //variable to create list element for new history button
-    //! appends only when page is refreshed
+    //! appended only when page is refreshed. unsure why
     const historyItem = document.createElement('li')
     //append history button on to page in list order
     historyItem.appendChild(historyButton)
@@ -322,9 +319,6 @@ function createHistoryButton(location) {
     // use this id to append the new element created list
     searchHistorySection.appendChild(historyItem)
 }
-
-
-
 
 // this function will update the search history in localstorage by taking all the search history 
 //results typed into search text field. Every time a user searches a location it will go to storage and not replace already stored location searched

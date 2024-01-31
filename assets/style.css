@@ -1,5 +1,6 @@
 body{
     background-image: linear-gradient(to right, rgba(163, 167, 177, 0.37) , rgba(90, 126, 136, 0.363));
+    font-family:Georgia, 'Times New Roman', Times, serif
 }
 
 .current-weather, .search-button, .five-day-forcast, .weather-header{
